@@ -3,7 +3,7 @@ Useful scripts to convert django users and groups to ldap structure
 
 
 **Example configs**
-```json
+```js
 // Minimal config
 {
 	"project_dir": "/path/to/django/project/dir",
