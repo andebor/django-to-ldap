@@ -1,6 +1,18 @@
 # django-to-ldap
 Useful scripts to convert django users and groups to ldap structure
 
+These scripts can be used to create ldif files based on your django users and groups.
+Those ldif files can then be used to add/modify your ldap database.
+
+#### [create_group_structure.py](create_group_structure.py)
+Creates the ldap structure with people and groups ou as well as a sudoers group and any existing Django groups.
+
+#### [users_to_ldap.py](users_to_ldap.py)
+Creates ldif for adding the Django users to the ldap database.
+
+#### [users_into_groups.py](users_into_groups.py)
+Puts users into groups according to django structure.
+
 
 **Example configs**
 ```js
