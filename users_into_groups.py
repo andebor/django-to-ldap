@@ -7,6 +7,7 @@ with open('config.json') as config:
     config = json.load(config)
 project_dir = config['project_dir']
 project_name = config['project_name']
+domain = config['domain']
 
 # Connect to django models
 sys.path.append(project_dir)
@@ -22,14 +23,15 @@ for group in groups:
     users = group.user_set.all()
     for user in users:
         ldif_string = u"""
-dn: cn={groupname},ou=groups,dc=vm,dc=borud,dc=eu
+dn: cn={groupname},ou=groups,{domain}
 changetype: modify
 add: member
-member: {username},ou=people,dc=vm,dc=borud,dc=eu
+member: {username},ou=people,{domain}
 """
         d = {
             'groupname': group.name,
-            'username': user.username
+            'username': user.username,
+            'domain': domain
             }
         formatted_string = ldif_string.format(**d)
         complete_string += formatted_string
