@@ -19,14 +19,16 @@ Puts users into groups according to django structure.
 // Minimal config
 {
 	"project_dir": "/path/to/django/project/dir",
+	"project_name": "mydjangoproject",
 	"domain": "dc=example,dc=com",
 	"uid_start": 1000,
-	"gid_start": 20000,
+	"gid_start": 20000
 }
 
 // Advanced config
 {
 	"project_dir": "/path/to/django/project/dir",
+	"project_name": "mydjangoproject",
 	"domain": "dc=example,dc=com",
 	"uid_start": 1000,
 	"gid_start": 20000,
