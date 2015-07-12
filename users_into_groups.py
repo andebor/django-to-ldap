@@ -25,8 +25,8 @@ for group in groups:
         ldif_string = u"""
 dn: cn={groupname},ou=groups,{domain}
 changetype: modify
-add: member
-member: {username},ou=people,{domain}
+add: memberuid
+memberuid: {username}
 """
         d = {
             'groupname': group.name,
