@@ -32,7 +32,6 @@ ou: people
 dn: cn=sudousers, {domain}
 objectClass: top
 objectClass: posixGroup
-objectclass: groupofmembers
 gidNumber: 10000
 cn: sudousers
 """
@@ -43,7 +42,6 @@ for group in groups:
 dn: cn={groupname}, {domain}
 objectClass: top
 objectClass: posixGroup
-objectclass: groupofmembers
 gidNumber: {uid}
 cn: {groupname}
 """
