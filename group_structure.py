@@ -29,7 +29,7 @@ objectClass: top
 objectClass: organizationalUnit
 ou: people
 
-dn: cn=sudousers, {domain}
+dn: cn=sudousers,ou=groups,{domain}
 objectClass: top
 objectClass: posixGroup
 gidNumber: 10000
@@ -39,7 +39,7 @@ cn: sudousers
 ldif_string = start_string.format(domain=domain)
 for group in groups:
     group_string = u"""
-dn: cn={groupname}, {domain}
+dn: cn={groupname},ou=groups,{domain}
 objectClass: top
 objectClass: posixGroup
 gidNumber: {uid}
