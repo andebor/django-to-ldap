@@ -29,8 +29,6 @@ def write_ldif():
     users = User.objects.all()
     ldif_string = ""
     user_count = 0
-    current_uid = uid
-    current_gid = gid
     for user in users:
         print "Adding user " + user.username.upper()
         input_string = u"""
@@ -62,8 +60,8 @@ homeDirectory: /home/{username}
         'username': user.username,
         'firstname': user.first_name,
         'lastname': user.last_name,
-        'gid': str(current_gid),
-        'uid': str(current_uid)
+        'gid': str(gid + user.pk),
+        'uid': str(uid + user.pk)
         }
 
         formatted_string = input_string.format(**d)
@@ -74,8 +72,6 @@ homeDirectory: /home/{username}
         else:
             ldif_string += formatted_string
         user_count += 1
-        current_gid += 1
-        current_uid += 1
 
     write_to_file(ldif_string)
     print "Added " + str(user_count) + " Django users to ldif."
